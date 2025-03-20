@@ -5,23 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css">    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
     <title>temp</title>
 </head>
 <body>
-    <header>
+    <main>
+        <header>
 
-        <a class="logo" href="./index.html">
-            <img class="logoImg" src="./pics/logo.jpg" alt="logo image">
-        </a>
-        <nav>
-            <ul>
-                <li class="navLink1 navLink">Services</li>
-                <li class="navLink2 navLink">About</li>
-                <li class="navLink3 navLink">Explore</li>
-            </ul>
-        </nav>
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=apnagoahomestays@gmail.com&su=For%20Booking%20Enquiry&" target="_blank" class="btnContact">Contact</a>
-    </header>
+            <a class="logo" href="./index.html">
+                <img class="logoImg" src="./pics/logo.jpg" alt="logo image">
+            </a>
+            <nav>
+                <ul>
+                    <li class="navLink1 navLink">Services</li>
+                    <li class="navLink2 navLink">About</li>
+                    <li class="navLink3 navLink">Explore</li>
+                </ul>
+            </nav>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=apnagoahomestays@gmail.com&su=For%20Booking%20Enquiry&" target="_blank" class="btnContact">Contact</a>
+        </header>
+        <!-- <section class="hero">
+            <h1 class="heroTitle">ApnaGoa.com</h1>
+        </section> -->
+    </main>
     <section>
         <div class="userTestimony">
             <h1 class="testimonaltitle">Listen to what our guests have to say</h1>
@@ -87,9 +94,25 @@
             </div>
         </div>
     </section>
-    <section>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20555.285709698994!2d73.93193010521412!3d15.225955743050427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfb357e9982889%3A0xfc8d8a2b8e2558a!2sFatrade%2C%20Goa!5e0!3m2!1sen!2sin!4v1742381924754!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="divider">
+        <sl-divider style="--color: tomato; --width:2px;"></sl-divider>
+    </div>
+    <section class="mapSection">
+        <h1 class="map-title">Where you'll be</h1>
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d30798.589374138977!2d73.938131!3d15.222813000000002!3m2!1i1024!2i768!4f13.1!2m1!1sSerenity%20Residency%2C%201st%20fatrade%2C%20Varca%2C%20South%20Goa%2C%20Goa%20-%20403721!5e0!3m2!1sen!2sin!4v1742449875474!5m2!1sen!2sin" width="1120" height="480" style="border-radius:15px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <sl-details summary="Colva,South Goa, India" class="custom-icons mapTxt">
+            <sl-icon name="plus-square" slot="expand-icon"></sl-icon>
+            <sl-icon name="dash-square" slot="collapse-icon"></sl-icon>
+            <p>The property is well developed , gated community, with 24/7 security personnels deployed and we expect guests to follow a good civic behaviour with neighbours and must try to respect each other's privacy and not play loud music post 11 pm midnight and avoid nuisance.</p>
+            <h4 class="mapSubHeadingG">Getting Around</h4>
+            <p>Our place is well connected via all modes including taxis and public transport, Fatrade Four Point , Near St. RoqueChapel on Ramada Caravella road is the landmark to reach our place</p>
+          </sl-details>
     </section>
+    <div class="divider">
+        <sl-divider style="--color: tomato; --width:2px;"></sl-divider>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
