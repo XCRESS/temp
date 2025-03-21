@@ -21,3 +21,9 @@ var swiper = new Swiper(".mySwiper", {
         480: { slidesPerView: 1 },  // Show 1 slide on mobile
     },
 });
+
+
+var swiper_pd = new Swiper(".mySwiper-pd", {
+    effect: "cards",
+    grabCursor: true,
+  });
