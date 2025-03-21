@@ -135,11 +135,38 @@ main{
 
 /* properties display section */
 .propertyDis {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.propTitle{
+    color: white;
+}
+
+.villaDis, .apartmentDis{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.villaTxt, .apartmentTxt{
+    font-size: small;
+    font-weight: 500;
+    width: 200px;
+}
+.carousals{
+    margin-top: 60px;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+
 }
 .picsContainer{
     display: flex;
@@ -214,46 +241,50 @@ main{
 }
 .slide-pd2:nth-child(1n) {
     background-color: rgb(206, 17, 17);
-    background-image: url('pics/45.jpg'); 
+    background-image: url('2BHK/15.jpg'); 
 }
 
 .slide-pd2:nth-child(2n) {
     background-color: rgb(0, 140, 255);
-    background-image: url('pics/17.jpg'); 
+    background-image: url('2BHK/14.jpg'); 
 
 }
 
 .slide-pd2:nth-child(3n) {
     background-color: rgb(10, 184, 111);
-    background-image: url('pics/10.jpg'); 
+    background-image: url('2BHK/16.jpg'); 
 
 }
 
 .slide-pd2:nth-child(4n) {
     background-color: rgb(211, 122, 7);
-    background-image: url('pics/kitchen.jpg'); 
+    background-image: url('2BHK/10.jpg'); 
 }
 
 .slide-pd2:nth-child(5n) {
     background-color: rgb(118, 163, 12);
-    background-image: url('pics/46.jpg'); 
+    background-image: url('2BHK/3.jpg'); 
 
 }
 
 .slide-pd2:nth-child(6n) {
     background-color: rgb(180, 10, 47);
+    background-image: url('2BHK/11.jpg');
 }
 
 .slide-pd2:nth-child(7n) {
     background-color: rgb(35, 99, 19);
+    background-image: url('2BHK/1.jpg');
 }
 
 .slide-pd2:nth-child(8n) {
     background-color: rgb(0, 68, 255);
+    background-image: url('2BHK/7.jpg');
 }
 
 .slide-pd2:nth-child(9n) {
     background-color: rgb(218, 12, 218);
+    background-image: url('2BHK/5.jpg');
 }
 
 
