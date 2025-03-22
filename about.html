@@ -3,9 +3,772 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Meet the host of ApnaGoa Homestays - Your luxury beachside retreat in South Goa. Learn about our story and the experiences we create for our guests.">
+    <meta name="keywords" content="apnagoa homestays, goa host, south goa accommodations, goa villa host, indian hospitality, vacation host goa">
+    <meta name="author" content="ApnaGoa Homestays">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.apnagoa.com/about.html">
+    <meta property="og:title" content="About Us - Meet Your ApnaGoa Homestays Host">
+    <meta property="og:description" content="Meet the family behind ApnaGoa Homestays. We're dedicated to creating unforgettable experiences in the heart of South Goa.">
+    <meta property="og:image" content="./pics/logo apnagoa1.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.apnagoa.com/about.html">
+    <meta property="twitter:title" content="About Us - Meet Your ApnaGoa Homestays Host">
+    <meta property="twitter:description" content="Meet the family behind ApnaGoa Homestays. We're dedicated to creating unforgettable experiences in the heart of South Goa.">
+    <meta property="twitter:image" content="./pics/logo apnagoa1.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="./pics/logo apnagoa1.jpg" type="image/jpg">
+    
+    <!-- Styles and Scripts -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css">    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>About Us - Meet Your ApnaGoa Homestays Host</title>
+    
+    <!-- Schema.org markup for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "About ApnaGoa Homestays",
+      "description": "Meet the host of ApnaGoa Homestays in South Goa. Learn about our story and experiences we create for our guests.",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Poonam Sapra",
+        "jobTitle": "Homestay Host",
+        "description": "Experienced host committed to providing authentic Goan experiences with all the comforts of luxury hospitality.",
+        "image": "./pics/poonam.jpeg",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "ApnaGoa Homestays",
+          "url": "https://www.apnagoa.com"
+        },
+        "sameAs": [
+          "https://www.facebook.com/apnagoahomestays",
+          "https://www.instagram.com/apnagoahomestays"
+        ]
+      }
+    }
+    </script>
+    <style>
+        /* About page specific styles */
+        .about-hero {
+            height: 60vh;
+            background-image: url('https://images.unsplash.com/photo-1596178065887-1198b6148b2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+            z-index: 1;
+        }
+        
+        .about-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .about-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .about-hero p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Host profile section */
+        .host-profile {
+            max-width: 1120px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .host-info {
+            flex: 1;
+            min-width: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .host-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .host-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .verified-badge {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: #27ae60;
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .host-details {
+            flex: 2;
+            min-width: 320px;
+        }
+        
+        .host-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .host-joined {
+            display: flex;
+            align-items: center;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .host-joined i {
+            margin-right: 10px;
+            color: #ff7e5f;
+        }
+        
+        .host-stats {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 20px;
+            box-shadow: 0 4px 8px rgba(255, 126, 95, 0.3);
+        }
+        
+        .stat-info h3 {
+            font-size: 1.2rem;
+            margin: 0;
+            color: #333;
+        }
+        
+        .stat-info p {
+            margin: 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .host-bio {
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: #444;
+        }
+        
+        /* Host highlights section */
+        .host-highlights {
+            background-color: #f9f9f9;
+            padding: 80px 0;
+        }
+        
+        .highlights-container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .highlights-title {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #333;
+        }
+        
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .highlight-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .highlight-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .highlight-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .highlight-card:hover .highlight-image img {
+            transform: scale(1.1);
+        }
+        
+        .highlight-content {
+            padding: 25px;
+        }
+        
+        .highlight-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .highlight-content p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        /* Reviews section */
+        .host-reviews {
+            padding: 80px 0;
+        }
+        
+        .reviews-container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .reviews-title {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #333;
+        }
+        
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .review-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .review-quote {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 40px;
+            color: rgba(255, 126, 95, 0.1);
+        }
+        
+        .review-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.7;
+            color: #555;
+        }
+        
+        .reviewer {
+            display: flex;
+            align-items: center;
+        }
+        
+        .reviewer-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .reviewer-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .reviewer-info h4 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #333;
+        }
+        
+        .reviewer-info p {
+            margin: 0;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        .rating {
+            color: #ff7e5f;
+            margin-top: 5px;
+        }
+        
+        /* Call to action section */
+        .cta-section {
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .cta-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-text {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: #ff7e5f;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .host-profile {
+                flex-direction: column;
+            }
+            
+            .host-details {
+                margin-top: 30px;
+            }
+            
+            .host-name {
+                font-size: 2rem;
+            }
+            
+            .highlights-grid, .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <div class="logo">
+            <img src="pics/logo apnagoa1.jpg" alt="ApnaGoa Homestays">
+        </div>
+        <nav>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul>
+                <li><a href="index.html" class="navLink1">Home</a></li>
+                <li><a href="services.html" class="navLink2">Services</a></li>
+                <li><a href="about.html" class="navLink3">About</a></li>
+            </ul>
+        </nav>
+        <a href="https://wa.me/+919112622192" class="btnContact">Book Now</a>
+    </header>
     
+    <!-- About Hero Section -->
+    <div class="about-hero">
+        <div class="about-hero-content">
+            <h1>Meet Your Host</h1>
+            <p>We're passionate about creating exceptional experiences for our guests in the beautiful coastal paradise of South Goa.</p>
+        </div>
+    </div>
+
+    <!-- Host Profile Section -->
+    <section class="host-profile">
+        <div class="host-info">
+            <div class="host-photo">
+                <img src="pics/poonam.jpeg" alt="Poonam Sapra - ApnaGoa Homestays Host">
+                <div class="verified-badge">
+                    <i class="fas fa-check"></i>
+                </div>
+            </div>
+            <sl-rating label="Host Rating" precision="0.5" readonly value="4.8"></sl-rating>
+            <p style="margin-top: 10px; color: #666;">150+ reviews</p>
+        </div>
+        
+        <div class="host-details">
+            <h2 class="host-name">Poonam Sapra</h2>
+            <div class="host-joined">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Host since January 2020</span>
+            </div>
+            
+            <div class="host-stats">
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>250+</h3>
+                        <p>Guests Hosted</p>
+                    </div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>4.8/5</h3>
+                        <p>Average Rating</p>
+                    </div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Superhost</h3>
+                        <p>For 5+ Years</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="host-bio">
+                <p>we've always been proud of our home's natural beauty and unique culture. Five years ago, we decided to share our love for Goa with travelers from around the world by opening ApnaGoa Homestays.</p>
+                <p>Our properties are designed to combine authentic Goan hospitality with modern luxury. We believe that travel is most meaningful when you can experience a destination like a local while enjoying all the comforts you need. the comforts you need.</p>
+                <p>We personally welcome each guest and remain available throughout their stay. I ensure that my guests are well satisfied with the amenities offered and have an unforgettable experience at our serene residence</p>
+            </div>
+            
+            <div class="host-languages">
+                <h3 style="margin-bottom: 10px;">Languages:</h3>
+                <sl-tag size="medium" pill>English</sl-tag>
+                <sl-tag size="medium" pill>Hindi</sl-tag>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Host Highlights Section -->
+    <section class="host-highlights">
+        <div class="highlights-container">
+            <h2 class="highlights-title">What Sets Us Apart</h2>
+            
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <div class="highlight-image">
+                        <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Local Knowledge">
+                    </div>
+                    <div class="highlight-content">
+                        <h3>Local Knowledge</h3>
+                        <p>Having lived in Goa our whole lives, we know the best beaches, restaurants, and hidden spots that most tourists never discover.</p>
+                    </div>
+                </div>
+                
+                <div class="highlight-card">
+                    <div class="highlight-image">
+                        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Personalized Attention">
+                    </div>
+                    <div class="highlight-content">
+                        <h3>Personalized Attention</h3>
+                        <p>We tailor each guest's experience to their interests, whether it's adventure, relaxation, food, or culture.</p>
+                    </div>
+                </div>
+                
+                <div class="highlight-card">
+                    <div class="highlight-image">
+                        <img src="https://images.unsplash.com/photo-1562664377-709f2c337eb2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Luxury Amenities">
+                    </div>
+                    <div class="highlight-content">
+                        <h3>Luxury Amenities</h3>
+                        <p>From private pools to premium bedding, we believe comfortable accommodations are the foundation of a great stay.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Reviews Section -->
+    <section class="host-reviews">
+        <div class="reviews-container">
+            <h2 class="reviews-title">What Our Guests Say</h2>
+            
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-quote">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p class="review-text">Host went above and beyond to make our stay memorable. They arranged a surprise birthday celebration for my husband and recommended the perfect restaurants for our anniversary dinner.</p>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Neha K.">
+                        </div>
+                        <div class="reviewer-info">
+                            <h4>Neha K.</h4>
+                            <p>July 2023</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-quote">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p class="review-text">The villa was spotless and exactly as pictured, but what really made our stay special was the host' attention to detail. They had a welcome basket with local treats and a personalized guidebook.</p>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Arjun S.">
+                        </div>
+                        <div class="reviewer-info">
+                            <h4>Arjun S.</h4>
+                            <p>March 2023</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-quote">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p class="review-text">As a digital nomad, I needed a reliable workspace and fast internet. Not only did the apartment meet these needs, but Rahul also connected me with other remote workers in the area. I extended my stay twice!</p>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">
+                            <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Vikram M.">
+                        </div>
+                        <div class="reviewer-info">
+                            <h4>Vikram M.</h4>
+                            <p>January 2023</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2 class="cta-title">Ready to Experience South Goa with Us?</h2>
+            <p class="cta-text">Book your stay now and let us help you create memories that will last a lifetime. Our calendar fills up quickly, especially during peak season.</p>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=apnagoahomestays@gmail.com&su=For%20Booking%20Enquiry&" target="_blank" class="cta-button">Book Your Stay</a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="socials">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://wa.me/919834144333"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=apnagoahomestays@gmail.com&su=For%20Booking%20Enquiry&" target="_blank"><i class="fa-regular fa-envelope"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <div class="copyright">
+            © 2025 ApnaGoa.com . All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Tawk.to Live Chat Widget -->
+    <script type="text/javascript">
+    var Tawk_API = Tawk_API || {};
+    var Tawk_LoadStart = new Date();
+    
+    // Configure Tawk API settings
+    Tawk_API.visitor = {
+        name: 'Guest Visitor',
+        email: ''
+    };
+    
+    // Set chat widget position and styling
+    Tawk_API.customStyle = {
+        zIndex: 1000,
+        position: 'br', // bottom right
+        minimizedStyle: {
+            background: '#ff7e5f',
+            color: '#FFFFFF'
+        },
+        chatBubble: {
+            title: 'Need help with your booking?',
+            text: 'Chat with us now to get assistance with your Goa getaway!'
+        }
+    };
+    
+    // Callback when widget is loaded
+    Tawk_API.onLoad = function() {
+        console.log('Tawk.to chat widget loaded successfully!');
+    };
+    
+    // Load the Tawk.to script
+    (function(){
+        var s1 = document.createElement("script"), 
+            s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/64b91e5894cf5d49dc6405e5/1h6ej8mc1'; // Example site ID - replace with your own
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+    })();
+    </script>
+
+    <!-- Mobile Nav Script -->
+    <script>
+        // Responsive navigation menu
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('nav ul');
+            
+            if (navToggle) {
+                navToggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    navMenu.classList.toggle('active');
+                });
+            }
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                const isClickInsideNav = event.target.closest('nav') || event.target.closest('.nav-toggle');
+                if (!isClickInsideNav && navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                }
+            });
+            
+            // Scroll event for header
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 50) {
+                    header.style.background = 'rgba(255, 255, 255, 0.95)';
+                    header.style.padding = '8px 20px';
+                } else {
+                    header.style.background = 'rgba(255, 255, 255, 0.95)';
+                    header.style.padding = '10px 20px';
+                }
+            });
+        });
+    </script>
 </body>
 </html>

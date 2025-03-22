@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Discover the complimentary and premium services offered by ApnaGoa Homestays in South Goa. From private pools to destination weddings, we have it all.">
+    <meta name="keywords" content="goa services, homestay services, villa services, goa destination wedding, south goa events, colva, varca, benaulim">
+    <meta name="author" content="ApnaGoa Homestays">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.apnagoa.com/services.html">
+    <meta property="og:title" content="Services - ApnaGoa Homestays in South Goa">
+    <meta property="og:description" content="Explore our range of complimentary and premium services, designed to make your stay in Goa truly memorable and hassle-free.">
+    <meta property="og:image" content="./pics/logo apnagoa1.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.apnagoa.com/services.html">
+    <meta property="twitter:title" content="Services - ApnaGoa Homestays in South Goa">
+    <meta property="twitter:description" content="Explore our range of complimentary and premium services, designed to make your stay in Goa truly memorable and hassle-free.">
+    <meta property="twitter:image" content="./pics/logo apnagoa1.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="./pics/logo apnagoa1.jpg" type="image/jpg">
+    
+    <!-- Styles and Scripts -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css">    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
+    <title>Services - ApnaGoa Homestays in South Goa</title>
+    <style>
+        /* Services page specific styles */
+        .services-hero {
+            height: 60vh;
+            background-image: url('https://images.unsplash.com/photo-1540541338287-41700207dee6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1650&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .services-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+            z-index: 1;
+        }
+        
+        .services-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .services-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .services-hero p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        /* Service card refinements */
+        .service-card {
+            height: 350px;
+            cursor: pointer;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+            perspective: 1000px;
+        }
+        
+        .service-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .service-card.flipped .service-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .service-card-front, .service-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .service-card-back {
+            background-color: white;
+            transform: rotateY(180deg);
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: left;
+        }
+        
+        .service-card-back h3 {
+            color: #ff7e5f;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+        }
+        
+        .service-card-back p {
+            color: #555;
+            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .service-content {
+            padding: 20px;
+            text-align: left;
+            position: relative;
+        }
+        
+        .service-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #333;
+            margin-top: 20px;
+        }
+        
+        .service-description {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .service-icon {
+            position: absolute;
+            top: -25px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #ff7e5f;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            box-shadow: 0 5px 15px rgba(255, 126, 95, 0.3);
+            z-index: 10;
+        }
+        
+        /* Show "Click to learn more" text */
+        .flip-info {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            font-size: 0.8rem;
+            color: #ff7e5f;
+            display: flex;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .flip-info i {
+            margin-left: 5px;
+            font-size: 0.7rem;
+        }
+        
+        /* Services container spacing */
+        .services-container {
+            margin-top: 120px; /* Increased top margin to prevent overlap with header */
+            padding: 30px 20px;
+        }
+        
+        .services-title {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #333;
+        }
+        
+        .services-section {
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #ff7e5f;
+            text-align: center;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+        
+        .whatsapp-button {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 30px;
+            margin-top: 20px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(37, 211, 102, 0.3);
+        }
+        
+        .whatsapp-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(37, 211, 102, 0.4);
+        }
+        
+        .whatsapp-button i {
+            margin-right: 5px;
+        }
+        
+        /* Media queries for responsive design */
+        @media (max-width: 768px) {
+            .services-container {
+                margin-top: 100px;
+            }
+            
+            .services-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.7rem;
+            }
+            
+            .service-card {
+                height: auto;
+                min-height: 320px;
+            }
+        }
+        
+        /* Service card titles and color scheme */
+        .service-title, .service-card-back h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #ff7e5f;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #ff7e5f;
+            text-align: center;
+        }
+        
+        .services-title {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #333;
+        }
+        
+        /* Fix the flip info text styling */
+        .flip-info {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            font-size: 0.8rem;
+            color: #ff7e5f;
+            display: flex;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .service-description, .service-card-back p {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .service-card-back ul {
+            padding-left: 20px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        .service-card-back li {
+            margin-bottom: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+        }
+        
+        .services-hero h1 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .services-hero p {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+    
+    <!-- Schema.org markup for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemPage",
+      "name": "ApnaGoa Homestays - Services",
+      "description": "Discover the complimentary and premium services offered by ApnaGoa Homestays in South Goa.",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.apnagoa.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": "https://www.apnagoa.com/services.html"
+          }
+        ]
+      },
+      "mainContentOfPage": {
+        "@type": "WebPageElement",
+        "cssSelector": ".services-container"
+      },
+      "specialty": [
+        "Complimentary Services",
+        "Premium Services",
+        "Destination Weddings",
+        "Birthday Celebrations",
+        "Special Events"
+      ],
+      "provider": {
+        "@type": "Organization",
+        "name": "ApnaGoa Homestays",
+        "url": "https://www.apnagoa.com"
+      }
+    }
+    </script>
+</head>
+<body>
+    <div class="mainContainer">
+        <header>
+            <div class="logo">
+                <img src="pics/logo apnagoa1.jpg" alt="ApnaGoa Homestays">
+            </div>
+            <nav>
+                <button class="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul>
+                    <li><a href="index.html" class="navLink1">Home</a></li>
+                    <li><a href="services.html" class="navLink2">Services</a></li>
+                    <li><a href="about.html" class="navLink3">About</a></li>
+                </ul>
+            </nav>
+            <a href="https://wa.me/+919112622192" class="btnContact">Book Now</a>
+        </header>
+        
+        <!-- Services Hero Section -->
+        <div class="services-hero">
+            <div class="services-hero-content">
+                <h1>Our Services</h1>
+                <p>Experience luxury and comfort with our range of complimentary and premium services, designed to make your stay in Goa truly memorable and hassle-free.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Complimentary Services Section -->
+    <div class="services-container">
+        <h1 class="services-title">Services We Offer</h1>
+        
+        <div class="services-section">
+            <h2>Complimentary Services</h2>
+            <div class="services-grid">
+                <!-- Wifi Service -->
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                            <div class="service-content">
+                                <div class="service-icon">
+                                    <i class="fas fa-wifi"></i>
+                                </div>
+                                <h3>High-Speed WiFi</h3>
+                                <p>Stay connected with our high-speed internet throughout your stay, perfect for both work and entertainment.</p>
+                            </div>
+                        </div>
+                        <div class="service-card-back">
+                            <h3>High-Speed WiFi</h3>
+                            <p>Stay connected with our high-speed internet throughout your stay, perfect for both work and entertainment.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Swimming Pool -->
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                            <div class="service-content">
+                                <div class="service-icon">
+                                    <i class="fas fa-swimming-pool"></i>
+                                </div>
+                                <h3>Swimming Pool</h3>
+                                <p>Enjoy our private pool at the villa or the common pool available for all our guests.</p>
+                            </div>
+                        </div>
+                        <div class="service-card-back">
+                            <h3>Swimming Pool</h3>
+                            <p>Enjoy our private pool at the villa or the common pool available for all our guests.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Work Station -->
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1487611459768-bd414656ea10?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                            <div class="service-content">
+                                <div class="service-icon">
+                                    <i class="fas fa-laptop"></i>
+                                </div>
+                                <h3>Dedicated Workspace</h3>
+                                <p>Remote professionals can enjoy a dedicated workspace with all necessities for productive work sessions.</p>
+                            </div>
+                        </div>
+                        <div class="service-card-back">
+                            <h3>Dedicated Workspace</h3>
+                            <p>Remote professionals can enjoy a dedicated workspace with all necessities for productive work sessions.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AC Rooms -->
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1540518614846-7eded433c457?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                            <div class="service-content">
+                                <div class="service-icon">
+                                    <i class="fas fa-snowflake"></i>
+                                </div>
+                                <h3>AC Bedrooms</h3>
+                                <p>All our bedrooms are equipped with air conditioning for your comfort regardless of the season.</p>
+                            </div>
+                        </div>
+                        <div class="service-card-back">
+                            <h3>AC Bedrooms</h3>
+                            <p>All our bedrooms are equipped with air conditioning for your comfort regardless of the season.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Equipped Kitchen -->
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                            <div class="service-content">
+                                <div class="service-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <h3>Well-Equipped Kitchen</h3>
+                                <p>Our fully functional kitchen allows you to prepare your own meals with all necessary appliances.</p>
+                            </div>
+                        </div>
+                        <div class="service-card-back">
+                            <h3>Well-Equipped Kitchen</h3>
+                            <p>Our fully functional kitchen allows you to prepare your own meals with all necessary appliances.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- TV with OTT -->
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                            <div class="service-content">
+                                <div class="service-icon">
+                                    <i class="fas fa-tv"></i>
+                                </div>
+                                <h3>TV with OTT Apps</h3>
+                                <p>Enjoy your favorite shows and movies with our TV setup featuring popular OTT applications.</p>
+                            </div>
+                        </div>
+                        <div class="service-card-back">
+                            <h3>TV with OTT Apps</h3>
+                            <p>Enjoy your favorite shows and movies with our TV setup featuring popular OTT applications.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Security -->
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1577495508326-19a1b3cf65b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+
+                            <div class="service-content">
+                                <div class="service-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h3>24/7 Security</h3>
+                                <p>Our gated community has round-the-clock security personnel for your safety and peace of mind.</p>
+                            </div>
+                        </div>
+                        <div class="service-card-back">
+                            <h3>24/7 Security Services</h3>
+                            <p>Our professional security team ensures your safety with:</p>
+                            <ul style="margin-left: 20px; margin-bottom: 15px;">
+                                <li>Round-the-clock surveillance</li>
+                                <li>Gate access control</li>
+                                <li>Regular security patrols</li>
+                                <li>CCTV monitoring</li>
+                            </ul>
+                            <p>Feel secure during your entire stay with our attentive and professionally trained security personnel.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Parking -->
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1506521781263-d8422e82f27a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                            <div class="service-content">
+                                <div class="service-icon">
+                                    <i class="fas fa-car"></i>
+                                </div>
+                                <h3>Free Parking</h3>
+                                <p>Secure on-site parking available for all our guests at no additional cost.</p>
+                            </div>
+                        </div>
+                        <div class="service-card-back">
+                            <h3>Free Parking</h3>
+                            <p>Secure on-site parking available for all our guests at no additional cost.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="divider">
+            <sl-divider style="--color: tomato; --width:2px;"></sl-divider>
+        </div>
+        
+        <!-- Paid Services Section -->
+        <div class="services-section">
+            <h2>Premium Services</h2>
+            <div class="services-grid">
+                <!-- Destination Wedding -->
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                            <div class="service-content">
+                                <div class="service-icon">
+                                    <i class="fas fa-ring"></i>
+                                </div>
+                                <h3>Destination Wedding</h3>
+                                <p>Make your special day unforgettable with our destination wedding planning services in beautiful Goa.</p>
+                            </div>
+                        </div>
+                        <div class="service-card-back">
+                            <h3>Destination Wedding</h3>
+                            <p>Make your special day unforgettable with our destination wedding planning services in beautiful Goa.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Birthday Celebrations -->
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                            <div class="service-content">
+                                <div class="service-icon">
+                                    <i class="fas fa-birthday-cake"></i>
+                                </div>
+                                <h3>Birthday Celebrations</h3>
+                                <p>We arrange memorable birthday celebrations with custom decorations, catering, and entertainment.</p>
+                            </div>
+                        </div>
+                        <div class="service-card-back">
+                            <h3>Birthday Celebrations</h3>
+                            <p>We arrange memorable birthday celebrations with custom decorations, catering, and entertainment.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Special Events -->
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1508997449629-303059a039c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                            <div class="service-content">
+                                <div class="service-icon">
+                                    <i class="fas fa-glass-cheers"></i>
+                                </div>
+                                <h3>Special Events</h3>
+                                <p>From anniversaries to corporate retreats, we can arrange and accommodate various special events.</p>
+                            </div>
+                        </div>
+                        <div class="service-card-back">
+                            <h3>Special Events</h3>
+                            <p>From anniversaries to corporate retreats, we can arrange and accommodate various special events.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Car & Bike Rental -->
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                            <div class="service-content">
+                                <div class="service-icon">
+                                    <i class="fas fa-motorcycle"></i>
+                                </div>
+                                <h3>Car & Bike Rental</h3>
+                                <p>We can arrange reliable bike and car rentals to help you explore the beauty of Goa at your own pace.</p>
+                            </div>
+                        </div>
+                        <div class="service-card-back">
+                            <h3>Car & Bike Rental</h3>
+                            <p>We can arrange reliable bike and car rentals to help you explore the beauty of Goa at your own pace.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Laundry Services -->
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1545173168-9f1947eebb7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                            <div class="service-content">
+                                <div class="service-icon">
+                                    <i class="fas fa-tshirt"></i>
+                                </div>
+                                <h3>Laundry Services</h3>
+                                <p>Convenient in-house chargeable laundry services available for all our guests during their stay.</p>
+                            </div>
+                        </div>
+                        <div class="service-card-back">
+                            <h3>Laundry Services</h3>
+                            <p>Convenient in-house chargeable laundry services available for all our guests during their stay.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Local Tours -->
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1582972236019-ea4af5ffe587?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                            <div class="service-content">
+                                <div class="service-icon">
+                                    <i class="fas fa-route"></i>
+                                </div>
+                                <h3>Local Tours & Experiences</h3>
+                                <p>Discover the authentic side of Goa with our curated local tours and cultural experiences.</p>
+                            </div>
+                        </div>
+                        <div class="service-card-back">
+                            <h3>Local Tours & Experiences</h3>
+                            <p>Discover the authentic side of Goa with our curated local tours and cultural experiences.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="divider">
+        <sl-divider style="--color: tomato; --width:2px;"></sl-divider>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="socials">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://wa.me/919834144333"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=apnagoahomestays@gmail.com&su=For%20Booking%20Enquiry&" target="_blank"><i class="fa-regular fa-envelope"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <div class="copyright">
+            © 2025 ApnaGoa.com . All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+    
+    <!-- Tawk.to Live Chat Widget -->
+    <script type="text/javascript">
+    var Tawk_API = Tawk_API || {};
+    var Tawk_LoadStart = new Date();
+    
+    // Configure Tawk API settings
+    Tawk_API.visitor = {
+        name: 'Guest Visitor',
+        email: ''
+    };
+    
+    // Set chat widget position and styling
+    Tawk_API.customStyle = {
+        zIndex: 1000,
+        position: 'br', // bottom right
+        minimizedStyle: {
+            background: '#ff7e5f',
+            color: '#FFFFFF'
+        },
+        chatBubble: {
+            title: 'Need help with your booking?',
+            text: 'Chat with us now to get assistance with your Goa getaway!'
+        }
+    };
+    
+    // Callback when widget is loaded
+    Tawk_API.onLoad = function() {
+        console.log('Tawk.to chat widget loaded successfully!');
+    };
+    
+    // Load the Tawk.to script
+    (function(){
+        var s1 = document.createElement("script"), 
+            s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        //s1.src = 'https://embed.tawk.to/YOUR_TAWK_TO_ID_HERE/default';
+        s1.src = 'https://embed.tawk.to/64b91e5894cf5d49dc6405e5/1h6ej8mc1'; // Example site ID - replace with your own
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+    })();
+    </script>
+
+    <script>
+        // Service card flip functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const serviceCards = document.querySelectorAll('.service-card');
+            
+            serviceCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.classList.toggle('flipped');
+                });
+            });
+
+            // Fix any issues with images or content
+            const securityCard = document.querySelector('.service-card:nth-child(7)');
+            if (securityCard) {
+                const securityImage = securityCard.querySelector('.service-image');
+                if (securityImage) {
+                    securityImage.style.backgroundImage = "url('https://images.unsplash.com/photo-1577495508326-19a1b3cf65b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')";
+                }
+            }
+            
+            // Responsive navigation menu
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('nav ul');
+            
+            if (navToggle) {
+                navToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                });
+            }
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                const isClickInsideNav = navToggle?.contains(event.target) || navMenu?.contains(event.target);
+                if (!isClickInsideNav && navMenu?.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
