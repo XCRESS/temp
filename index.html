@@ -491,49 +491,7 @@
             document.body.style.overflow = ''; // Re-enable scrolling
         }
     </script>
-    
-    <!-- Tawk.to Live Chat Widget -->
-    <script type="text/javascript">
-    var Tawk_API = Tawk_API || {};
-    var Tawk_LoadStart = new Date();
-    
-    // Configure Tawk API settings
-    Tawk_API.visitor = {
-        name: 'Guest Visitor',
-        email: ''
-    };
-    
-    // Set chat widget position and styling
-    Tawk_API.customStyle = {
-        zIndex: 1000,
-        position: 'br', // bottom right
-        minimizedStyle: {
-            background: '#ff7e5f',
-            color: '#FFFFFF'
-        },
-        chatBubble: {
-            title: 'Need help with your booking?',
-            text: 'Chat with us now to get assistance with your Goa getaway!'
-        }
-    };
-    
-    // Callback when widget is loaded
-    Tawk_API.onLoad = function() {
-        console.log('Tawk.to chat widget loaded successfully!');
-    };
-    
-    // Load the Tawk.to script
-    (function(){
-        var s1 = document.createElement("script"), 
-            s0 = document.getElementsByTagName("script")[0];
-        s1.async = true;
-        s1.src = 'https://embed.tawk.to/64b91e5894cf5d49dc6405e5/1h6ej8mc1'; // Example site ID - replace with your own
-        s1.charset = 'UTF-8';
-        s1.setAttribute('crossorigin', '*');
-        s0.parentNode.insertBefore(s1, s0);
-    })();
-    </script>
-
+  
     <!-- Mobile Nav Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -556,5 +514,20 @@
             // ... existing Swiper initialization ...
         });
     </script>
+
+    // tawk.to 
+        <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/67e0ff9a241a85190f5bbdcd/1in3ecuns';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
 </body>
 </html>
