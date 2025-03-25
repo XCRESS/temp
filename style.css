@@ -41,22 +41,20 @@ header {
 
 .logo img {
     width: 100%;
-    height: auto;
     object-fit: contain;
 }
 
 /* Navigation */
 nav {
     cursor: pointer;
-    margin-top: 10px;
     width: 35%;
+    height: 100%;
     background-color: #ff7e5f;
     color: white;
     font-weight: 600;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50px;
     border-radius: 30px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 16px, rgba(0, 0, 0, 0.1) 0px 4px 8px;
     transition: all 0.3s ease;
@@ -81,8 +79,8 @@ nav li {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
     text-align: center;
+    height: 100%;
 }
 
 nav a {
@@ -116,7 +114,6 @@ nav a:hover {
 
 .btnContact {
     text-decoration: none;
-    margin-right: 12px;
     background-color: #27ae60;
     border-radius: 60px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 16px, rgba(0, 0, 0, 0.1) 0px 4px 8px;
@@ -128,6 +125,9 @@ nav a:hover {
     position: relative;
     overflow: hidden;
     z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btnContact:before {
@@ -588,83 +588,32 @@ main {
         width: 100%;
         margin-bottom: 20px;
     }
-    
-    header {
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding: 10px;
+
+    .header{
+        width: 100vw;
+        font-size: small;
     }
     
     .logo {
-        order: 1;
-        flex: 1;
+        width: 25%;
+        height: auto;
+    }
+
+    .logo img {
+        width: 100%;
     }
     
     .btnContact {
-        order: 2;
-        margin-right: 0;
+        justify-content: center;
+        width: 25%;
+        padding-left: 5px;
+        padding-right: 5px;
+        font-size: 10px;
     }
     
     nav {
-        order: 3;
-        width: 100%;
-        margin-top: 15px;
-        position: relative;
+        font-size: 10px;
     }
-    
-    .nav-toggle {
-        display: flex;
-        position: absolute;
-        top: -50px;
-        right: 10px;
-        background: none;
-        border: none;
-        color: #333;
-        font-size: 24px;
-        cursor: pointer;
-        z-index: 5;
-    }
-    
-    nav ul {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        background-color: #ff7e5f;
-        border-radius: 10px;
-        overflow: hidden;
-        max-height: 0;
-        transition: max-height 0.3s ease;
-        z-index: 4;
-    }
-    
-    nav ul.active {
-        max-height: 300px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
-    
-    nav li {
-        width: 100%;
-        height: auto;
-        border: none !important;
-    }
-    
-    nav li a {
-        padding: 15px;
-        width: 100%;
-        display: block !important;
-        text-align: center;
-        line-height: normal !important;
-        height: auto !important;
-    }
-    
-    .navLink2 {
-        border: none !important;
-        border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
-    }
-    
     .map {
         width: 95% !important;
     }
