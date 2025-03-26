@@ -183,23 +183,27 @@
     </script>
 </head>
 <body>
+    <header>
+        <div class="logo"onclick="window.location.href='index.html';">
+            <img src="pics/logo apnagoa1.jpg" alt="ApnaGoa Homestays">
+        </div>
+        <nav>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul>
+                <li><a href="index.html" class="navLink1">Home</a></li>
+                <li><a href="services.html" class="navLink2">Services</a></li>
+                <li><a href="about.html" class="navLink3">About</a></li>
+            </ul>
+        </nav>
+        <a href="https://wa.me/+919311609133" class="btnContact">Contact</a>
+    </header>
     <main>
-        <header>
-            <div class="logo">
-                <img src="pics/logo apnagoa1.jpg" alt="ApnaGoa Homestays">
-            </div>
-            <nav>
-                <button class="nav-toggle">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <ul>
-                    <li><a href="index.html" class="navLink1">Home</a></li>
-                    <li><a href="services.html" class="navLink2">Services</a></li>
-                    <li><a href="about.html" class="navLink3">About</a></li>
-                </ul>
-            </nav>
-            <a href="https://wa.me/+919311609133" class="btnContact">Contact</a>
-        </header>
+    
+        <div class="hero">
+            <h1>Homestays in South Goa</h1>
+        </div>
     </main>
     <section class="propertyDis">
         <h1 class="propTitle">Find your perfect stay for your next trip to Goa</h1>
@@ -336,22 +340,17 @@
         <sl-divider style="--color: tomato; --width:2px;"></sl-divider>
     </div>
     <section class="mapSection">
-        <h1 class="map-title">Where you'll be</h1>
+        <h1 class="map-title">Where you'll be,</h1>
         <div class="map">
             <div class="map-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d30798.589374138977!2d73.938131!3d15.222813000000002!3m2!1i1024!2i768!4f13.1!2m1!1sSerenity%20Residency%2C%201st%20fatrade%2C%20Varca%2C%20South%20Goa%2C%20Goa%20-%20403721!5e0!3m2!1sen!2sin!4v1742449875474!5m2!1sen!2sin" width="1120" height="480" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
-        <div style="max-width: 1120px; margin: 20px auto; height: 300px; overflow: hidden; transition: height 0.3s ease;">
-            <sl-details summary="Colva, South Goa, India" class="custom-icons mapTxt">
-                <sl-icon name="plus-square" slot="expand-icon"></sl-icon>
-                <sl-icon name="dash-square" slot="collapse-icon"></sl-icon>
-                <div style="max-height: 250px; overflow-y: auto; padding-right: 10px;">
-                    <p>The property is well developed , gated community, with 24/7 security personnels deployed and we expect guests to follow a good civic behaviour with neighbours and must try to respect each other's privacy and not play loud music post 11 pm midnight and avoid nuisance.</p>
-                    <h4 class="mapSubHeadingG">Getting Around</h4>
-                    <p>Our place is well connected via all modes including taxis and public transport, Fatrade Four Point , Near St. RoqueChapel on Ramada Caravella road is the landmark to reach our place</p>
-                </div>
-            </sl-details>
+        <div class="mapTxt">
+            <h2 class="mapSubHeading">Colva, South Goa, India</h2>
+            <p class="mapDetails">the property is well developed, gated community, with 24/7 security personnels deployed and we expect guest to follow a good civic behaviour with neighbours and must try to respect each other's privacy and not play loud music post 11 pm midnight and avoid nuisance.</p>
+            <p class="mapDetails">Our place is well connected via all modes including taxis and public transport, Fatrade Four Point , Near St. RoqueChapel on Ramada Caravella road is the landmark to reach our place</p>
+            <p class="mapDetails">Our place is well connected via all modes including taxis and public transport, Fatrade Four Point , Near St. RoqueChapel on Ramada Caravella road is the landmark to reach our place</p>
         </div>
     </section>
     <div class="divider">
@@ -514,6 +513,18 @@
             
             // Initialize Swiper for property section
             // ... existing Swiper initialization ...
+
+            // Scroll event for header
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 50) {
+                    header.style.background = 'rgba(255, 255, 255, 0.85)';
+                    header.style.padding = '8px 20px';
+                } else {
+                    header.style.background = 'rgba(255, 255, 255)';
+                    header.style.padding = '10px 20px';
+                }
+            });
         });
     </script>
 

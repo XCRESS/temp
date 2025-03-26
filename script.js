@@ -19,6 +19,7 @@ var swiper = new Swiper(".mySwiper", {
         1024: { slidesPerView: 3 }, // Show 3 slides on large screens
         768: { slidesPerView: 2 },  // Show 2 slides on tablets
         480: { slidesPerView: 1 },  // Show 1 slide on mobile
+        0: { slidesPerView: 1 }     // 🔹for very small screens
     },
 });
 
