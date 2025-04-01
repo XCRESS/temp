@@ -10,6 +10,10 @@
     <meta name="author" content="ApnaGoa Homestays">
     <meta name="robots" content="index, follow">
     
+    <!-- Critical resource preloading -->
+    <link rel="preload" href="./pics/explore/hero-bg.jpeg" as="image">
+    <link rel="preload" href="css/explore.css" as="style">
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.apnagoa.com/explore.html">
@@ -32,610 +36,9 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
+    <link rel="stylesheet" href="css/explore.css">
+    <script type="module" defer src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
     <title>Explore South Goa - Complete Travel Guide by ApnaGoa Homestays</title>
-    
-    <style>
-        /* Page-specific styles */
-        .explore-hero {
-            height: 70vh;
-            background: url('./pics/explore/hero-bg.jpeg');
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            color: white;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 0 20px;
-            margin-top: 70px;
-        }
-        
-        .explore-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3));
-            z-index: 1;
-        }
-        
-        .explore-hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-        }
-        
-        .explore-hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-        }
-        
-        .explore-hero p {
-            font-size: 1.2rem;
-            margin-bottom: 25px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-        }
-        
-        .explore-cta {
-            display: inline-block;
-            background: #ff7e5f;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 126, 95, 0.4);
-        }
-        
-        .explore-cta:hover {
-            background: #e76a4c;
-            transform: translateY(-3px);
-        }
-        
-        /* Override container styles */
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        .explore-section {
-            padding: 60px 0;
-            position: relative;
-        }
-        
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: #333;
-            text-align: center;
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            color: #666;
-            font-size: 1.1rem;
-            max-width: 800px;
-            margin: 0 auto 40px;
-        }
-        
-        /* Card grid for destinations */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-        }
-        
-        .destination-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .destination-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-        
-        .card-image {
-            height: 220px;
-            overflow: hidden;
-        }
-        
-        .card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .destination-card:hover .card-image img {
-            transform: scale(1.05);
-        }
-        
-        .card-content {
-            padding: 20px;
-        }
-        
-        .card-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #ff7e5f;
-        }
-        
-        .card-description {
-            color: #555;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-        
-        .card-details {
-            margin-bottom: 20px;
-        }
-        
-        .detail-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        .detail-item i {
-            color: #ff7e5f;
-            margin-right: 10px;
-            width: 16px;
-            text-align: center;
-        }
-        
-        .card-link, .event-link, .activity-link, .cultural-link {
-            display: inline-block;
-            color: white;
-            background: #ff7e5f;
-            padding: 8px 15px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        
-        .card-link:hover, .event-link:hover, .activity-link:hover, .cultural-link:hover {
-            background: #e76a4c;
-            transform: translateY(-2px);
-        }
-        
-        /* Events section */
-        .events-section {
-            background-color: #f9f9f9;
-        }
-        
-        .events-timeline {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-        }
-        
-        .event-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .event-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .event-image {
-            height: 200px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .event-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .event-card:hover .event-image img {
-            transform: scale(1.05);
-        }
-        
-        .event-date {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(255, 126, 95, 0.9);
-            color: white;
-            padding: 10px;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: 500;
-            line-height: 1.2;
-        }
-        
-        .event-date .month {
-            display: block;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-        }
-        
-        .event-date .days {
-            display: block;
-            font-size: 0.8rem;
-        }
-        
-        .event-content {
-            padding: 20px;
-        }
-        
-        .event-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #ff7e5f;
-        }
-        
-        .event-description {
-            color: #555;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-        
-        /* Activities section */
-        .activities-section {
-            background-color: #fff;
-        }
-        
-        .activities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-        }
-        
-        .activity-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .activity-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .activity-image {
-            height: 200px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .activity-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .activity-card:hover .activity-image img {
-            transform: scale(1.05);
-        }
-        
-        .activity-difficulty {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(255, 126, 95, 0.9);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-        }
-        
-        .activity-content {
-            padding: 20px;
-        }
-        
-        .activity-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #ff7e5f;
-        }
-        
-        .activity-description {
-            color: #555;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-        
-        /* Cultural section */
-        .cultural-section {
-            background-color: #f9f9f9;
-        }
-        
-        .cultural-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-        }
-        
-        .cultural-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .cultural-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .cultural-image {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .cultural-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .cultural-card:hover .cultural-image img {
-            transform: scale(1.05);
-        }
-        
-        .cultural-content {
-            padding: 20px;
-        }
-        
-        .cultural-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #ff7e5f;
-        }
-        
-        .cultural-description {
-            color: #555;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-        
-        /* Tips section */
-        .tips-section {
-            background-color: #fff;
-        }
-        
-        .tips-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-        
-        .tips-column {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .tip-card {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            padding: 25px;
-            margin-bottom: 30px;
-            position: relative;
-            transition: transform 0.3s ease;
-        }
-        
-        .tip-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .tip-icon {
-            position: absolute;
-            top: -20px;
-            left: 25px;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #ff7e5f, #feb47b);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 1.2rem;
-            box-shadow: 0 5px 15px rgba(255, 126, 95, 0.3);
-        }
-        
-        .tip-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            margin: 15px 0 20px;
-            padding-left: 35px;
-            color: #ff7e5f;
-        }
-        
-        .tip-content p {
-            color: #555;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-        
-        .tip-note {
-            background: #fff5f2;
-            border-left: 3px solid #ff7e5f;
-            padding: 12px 15px;
-            margin-top: 15px;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: flex-start;
-        }
-        
-        .tip-note i {
-            color: #ff7e5f;
-            margin-right: 10px;
-            font-size: 1rem;
-            margin-top: 2px;
-        }
-        
-        .travel-map {
-            margin-bottom: 50px;
-        }
-        
-        .map-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            text-align: center;
-            color: #333;
-        }
-        
-        .itinerary-suggestion {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            padding: 30px;
-            margin-top: 40px;
-        }
-        
-        .itinerary-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            text-align: center;
-            color: #333;
-        }
-        
-        .itinerary-days {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        
-        .itinerary-day {
-            flex: 1;
-            min-width: 280px;
-            background: #f9f9f9;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        
-        .day-number {
-            background: linear-gradient(135deg, #ff7e5f, #feb47b);
-            color: white;
-            padding: 10px 20px;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-        
-        .day-content {
-            padding: 20px;
-        }
-        
-        .day-content h4 {
-            color: #ff7e5f;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-        
-        .day-content ul {
-            padding-left: 20px;
-        }
-        
-        .day-content li {
-            margin-bottom: 10px;
-            color: #555;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-        
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .explore-hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .explore-hero p {
-                font-size: 1rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .card-grid,
-            .events-timeline,
-            .activities-grid,
-            .cultural-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .destination-card, .event-card, .activity-card, .cultural-card {
-                width: 100%;
-                margin: 0 auto;
-            }
-            
-            .card-image, .event-image, .activity-image, .cultural-image {
-                height: 180px;
-            }
-            
-            .tip-card {
-                padding: 20px 15px;
-                margin-bottom: 20px;
-            }
-            
-            .tip-title {
-                font-size: 1.2rem;
-            }
-            
-            .itinerary-suggestion {
-                padding: 20px 15px;
-            }
-            
-            .itinerary-days {
-                flex-direction: column;
-            }
-            
-            .itinerary-day {
-                width: 100%;
-                margin-bottom: 15px;
-            }
-            
-            .container {
-                width: 95%;
-                padding: 10px;
-            }
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -674,7 +77,7 @@
                 <!-- Palolem Beach -->
                 <div class="destination-card">
                     <div class="card-image">
-                        <img src="https://images.pexels.com/photos/635519/pexels-photo-635519.jpeg" alt="Palolem Beach">
+                        <img src="https://images.pexels.com/photos/635519/pexels-photo-635519.jpeg" alt="Palolem Beach" width="350" height="220">
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Palolem Beach</h3>
@@ -700,7 +103,7 @@
                 <!-- Agonda Beach -->
                 <div class="destination-card">
                     <div class="card-image">
-                        <img src="./pics/explore/beach-1.jpeg" alt="Agonda Beach">
+                        <img src="./pics/explore/beach-1.jpeg" alt="Agonda Beach" width="350" height="220">
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Agonda Beach</h3>
@@ -726,7 +129,7 @@
                 <!-- Cabo de Rama Fort -->
                 <div class="destination-card">
                     <div class="card-image">
-                        <img src="https://images.pexels.com/photos/4123753/pexels-photo-4123753.jpeg" alt="Cabo de Rama Fort">
+                        <img src="https://images.pexels.com/photos/4123753/pexels-photo-4123753.jpeg" alt="Cabo de Rama Fort" width="350" height="220" loading="lazy">
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Cabo de Rama Fort</h3>
@@ -752,7 +155,7 @@
                 <!-- Butterfly Beach -->
                 <div class="destination-card">
                     <div class="card-image">
-                        <img src="https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg" alt="Butterfly Beach">
+                        <img src="https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg" alt="Butterfly Beach" width="350" height="220" loading="lazy">
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Butterfly Beach</h3>
@@ -778,7 +181,7 @@
                 <!-- Cotigao Wildlife Sanctuary -->
                 <div class="destination-card">
                     <div class="card-image">
-                        <img src="https://images.pexels.com/photos/843266/pexels-photo-843266.jpeg" alt="Cotigao Wildlife Sanctuary">
+                        <img src="https://images.pexels.com/photos/843266/pexels-photo-843266.jpeg" alt="Cotigao Wildlife Sanctuary" width="350" height="220" loading="lazy">
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Cotigao Wildlife Sanctuary</h3>
@@ -804,7 +207,7 @@
                 <!-- Cola Beach -->
                 <div class="destination-card">
                     <div class="card-image">
-                        <img src="https://images.pexels.com/photos/11741614/pexels-photo-11741614.jpeg" alt="Cola Beach">
+                        <img src="https://images.pexels.com/photos/11741614/pexels-photo-11741614.jpeg" alt="Cola Beach" width="350" height="220" loading="lazy">
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Cola Beach</h3>
@@ -840,7 +243,7 @@
                 <!-- Shigmo Festival -->
                 <div class="event-card">
                     <div class="event-image">
-                        <img src="https://images.pexels.com/photos/2372132/pexels-photo-2372132.jpeg" alt="Shigmo Festival">
+                        <img src="https://images.pexels.com/photos/2372132/pexels-photo-2372132.jpeg" alt="Shigmo Festival" width="350" height="200" loading="lazy">
                         <div class="event-date">
                             <span class="month">March</span>
                             <span class="days">Full moon day</span>
@@ -870,7 +273,7 @@
                 <!-- Goa Carnival -->
                 <div class="event-card">
                     <div class="event-image">
-                        <img src="https://images.pexels.com/photos/2218839/pexels-photo-2218839.jpeg" alt="Goa Carnival">
+                        <img src="https://images.pexels.com/photos/2218839/pexels-photo-2218839.jpeg" alt="Goa Carnival" width="350" height="200" loading="lazy">
                         <div class="event-date">
                             <span class="month">Feb</span>
                             <span class="days">Before Lent</span>
@@ -900,7 +303,7 @@
                 <!-- Sao Joao Festival -->
                 <div class="event-card">
                     <div class="event-image">
-                        <img src="https://images.pexels.com/photos/1684187/pexels-photo-1684187.jpeg" alt="Sao Joao Festival">
+                        <img src="https://images.pexels.com/photos/1684187/pexels-photo-1684187.jpeg" alt="Sao Joao Festival" width="350" height="200" loading="lazy">
                         <div class="event-date">
                             <span class="month">June</span>
                             <span class="days">24</span>
@@ -930,7 +333,7 @@
                 <!-- Bonderam Festival -->
                 <div class="event-card">
                     <div class="event-image">
-                        <img src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg" alt="Bonderam Festival">
+                        <img src="https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg" alt="Bonderam Festival" width="350" height="200" loading="lazy">
                         <div class="event-date">
                             <span class="month">Aug</span>
                             <span class="days">Fourth Sat</span>
@@ -960,7 +363,7 @@
                 <!-- Feast of St. Francis Xavier -->
                 <div class="event-card">
                     <div class="event-image">
-                        <img src="https://images.pexels.com/photos/247899/pexels-photo-247899.jpeg" alt="Feast of St. Francis Xavier">
+                        <img src="https://images.pexels.com/photos/247899/pexels-photo-247899.jpeg" alt="Feast of St. Francis Xavier" width="350" height="200" loading="lazy">
                         <div class="event-date">
                             <span class="month">Dec</span>
                             <span class="days">3</span>
@@ -1000,7 +403,7 @@
                 <!-- Scuba Diving -->
                 <div class="activity-card">
                     <div class="activity-image">
-                        <img src="https://images.pexels.com/photos/3732873/pexels-photo-3732873.jpeg" alt="Scuba Diving in South Goa">
+                        <img src="https://images.pexels.com/photos/3732873/pexels-photo-3732873.jpeg" alt="Scuba Diving in South Goa" width="350" height="200" loading="lazy">
                         <div class="activity-difficulty">
                             <span>Moderate</span>
                         </div>
@@ -1033,7 +436,7 @@
                 <!-- Dolphin Watching -->
                 <div class="activity-card">
                     <div class="activity-image">
-                        <img src="https://images.pexels.com/photos/238468/pexels-photo-238468.jpeg" alt="Dolphin Watching in South Goa">
+                        <img src="https://images.pexels.com/photos/238468/pexels-photo-238468.jpeg" alt="Dolphin Watching in South Goa" width="350" height="200" loading="lazy">
                         <div class="activity-difficulty">
                             <span>Easy</span>
                         </div>
@@ -1066,7 +469,7 @@
                 <!-- Kayaking -->
                 <div class="activity-card">
                     <div class="activity-image">
-                        <img src="https://images.pexels.com/photos/1430672/pexels-photo-1430672.jpeg" alt="Kayaking in South Goa">
+                        <img src="https://images.pexels.com/photos/1430672/pexels-photo-1430672.jpeg" alt="Kayaking in South Goa" width="350" height="200" loading="lazy">
                         <div class="activity-difficulty">
                             <span>Easy to Moderate</span>
                         </div>
@@ -1099,7 +502,7 @@
                 <!-- Spice Plantation Tour -->
                 <div class="activity-card">
                     <div class="activity-image">
-                        <img src="https://images.pexels.com/photos/4219654/pexels-photo-4219654.jpeg" alt="Spice Plantation Tour in South Goa">
+                        <img src="https://images.pexels.com/photos/4219654/pexels-photo-4219654.jpeg" alt="Spice Plantation Tour in South Goa" width="350" height="200" loading="lazy">
                         <div class="activity-difficulty">
                             <span>Easy</span>
                         </div>
@@ -1132,7 +535,7 @@
                 <!-- River Cruise -->
                 <div class="activity-card">
                     <div class="activity-image">
-                        <img src="https://images.pexels.com/photos/1482193/pexels-photo-1482193.jpeg" alt="River Cruise in South Goa">
+                        <img src="https://images.pexels.com/photos/1482193/pexels-photo-1482193.jpeg" alt="River Cruise in South Goa" width="350" height="200" loading="lazy">
                         <div class="activity-difficulty">
                             <span>Easy</span>
                         </div>
@@ -1165,7 +568,7 @@
                 <!-- Parasailing -->
                 <div class="activity-card">
                     <div class="activity-image">
-                        <img src="https://images.pexels.com/photos/1604869/pexels-photo-1604869.jpeg" alt="Parasailing in South Goa">
+                        <img src="https://images.pexels.com/photos/1604869/pexels-photo-1604869.jpeg" alt="Parasailing in South Goa" width="350" height="200" loading="lazy">
                         <div class="activity-difficulty">
                             <span>Moderate</span>
                         </div>
@@ -1208,7 +611,7 @@
                 <!-- Portuguese Heritage Homes -->
                 <div class="cultural-card">
                     <div class="cultural-image">
-                        <img src="https://images.pexels.com/photos/2574631/pexels-photo-2574631.jpeg" alt="Portuguese Heritage Homes">
+                        <img src="https://images.pexels.com/photos/2574631/pexels-photo-2574631.jpeg" alt="Portuguese Heritage Homes" width="350" height="200" loading="lazy">
                     </div>
                     <div class="cultural-content">
                         <h3 class="cultural-title">Portuguese Heritage Homes</h3>
@@ -1234,7 +637,7 @@
                 <!-- Goan Cooking Classes -->
                 <div class="cultural-card">
                     <div class="cultural-image">
-                        <img src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg" alt="Goan Cooking Classes">
+                        <img src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg" alt="Goan Cooking Classes" width="350" height="200" loading="lazy">
                     </div>
                     <div class="cultural-content">
                         <h3 class="cultural-title">Goan Cooking Classes</h3>
@@ -1260,7 +663,7 @@
                 <!-- Traditional Goan Music and Dance -->
                 <div class="cultural-card">
                     <div class="cultural-image">
-                        <img src="https://images.pexels.com/photos/1751731/pexels-photo-1751731.jpeg" alt="Traditional Goan Music and Dance">
+                        <img src="https://images.pexels.com/photos/1751731/pexels-photo-1751731.jpeg" alt="Traditional Goan Music and Dance" width="350" height="200" loading="lazy">
                     </div>
                     <div class="cultural-content">
                         <h3 class="cultural-title">Traditional Music and Dance</h3>
@@ -1286,7 +689,7 @@
                 <!-- Local Craft Workshops -->
                 <div class="cultural-card">
                     <div class="cultural-image">
-                        <img src="https://images.pexels.com/photos/848205/pexels-photo-848205.jpeg" alt="Local Craft Workshops">
+                        <img src="https://images.pexels.com/photos/848205/pexels-photo-848205.jpeg" alt="Local Craft Workshops" width="350" height="200" loading="lazy">
                     </div>
                     <div class="cultural-content">
                         <h3 class="cultural-title">Local Craft Workshops</h3>
@@ -1312,7 +715,7 @@
                 <!-- Churches and Temples Tour -->
                 <div class="cultural-card">
                     <div class="cultural-image">
-                        <img src="https://images.pexels.com/photos/1603653/pexels-photo-1603653.jpeg" alt="Churches and Temples Tour">
+                        <img src="https://images.pexels.com/photos/1603653/pexels-photo-1603653.jpeg" alt="Churches and Temples Tour" width="350" height="200" loading="lazy">
                     </div>
                     <div class="cultural-content">
                         <h3 class="cultural-title">Churches and Temples Tour</h3>
@@ -1338,7 +741,7 @@
                 <!-- Goan Feni Tasting -->
                 <div class="cultural-card">
                     <div class="cultural-image">
-                        <img src="https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg" alt="Goan Feni Tasting">
+                        <img src="https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg" alt="Goan Feni Tasting" width="350" height="200" loading="lazy">
                     </div>
                     <div class="cultural-content">
                         <h3 class="cultural-title">Goan Feni Tasting</h3>
@@ -1473,7 +876,7 @@
             
             <div class="travel-map">
                 <h3 class="map-title">South Goa at a Glance</h3>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d122895.85640111915!2d74.03861326953124!3d15.208129500000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfb8337f679a7d%3A0x863e2fe3fc3bf21a!2sSouth%20Goa%2C%20Goa!5e0!3m2!1sen!2sin!4v1657376548211!5m2!1sen!2sin" width="100%" height="450" style="border-radius:15px; border:none;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d122895.85640111915!2d74.03861326953124!3d15.208129500000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfb8337f679a7d%3A0x863e2fe3fc3bf21a!2sSouth%20Goa%2C%20Goa!5e0!3m2!1sen!2sin!4v1657376548211!5m2!1sen!2sin" width="100%" height="450" style="border-radius:15px; border:none;" loading="lazy" allowfullscreen=""></iframe>
             </div>
             
             <div class="itinerary-suggestion">
@@ -1540,47 +943,56 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.85/dist/shoelace.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script src="script.js"></script>
-    <script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.85/dist/shoelace.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js" defer></script>
+    <script src="script.js" defer></script>
+    <script defer>
         document.addEventListener('DOMContentLoaded', function() {
+            // Store elements we'll use more than once
             const navToggle = document.querySelector('.nav-toggle');
             const navMenu = document.querySelector('nav ul');
+            const header = document.querySelector('header');
             
-            navToggle.addEventListener('click', function() {
-                navMenu.classList.toggle('active');
-            });
-            
-            // Close menu when clicking outside
-            document.addEventListener('click', function(event) {
-                const isClickInsideNav = navToggle?.contains(event.target) || navMenu?.contains(event.target);
-                if (!isClickInsideNav && navMenu?.classList.contains('active')) {
-                    navMenu.classList.remove('active');
-                }
-            });
+            // Navigation menu toggle
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    const isClickInsideNav = navToggle?.contains(event.target) || navMenu?.contains(event.target);
+                    if (!isClickInsideNav && navMenu?.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                    }
+                });
+            }
             
             // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
                 });
             });
 
-            // Scroll event for header
-            window.addEventListener('scroll', function() {
-                const header = document.querySelector('header');
-                if (window.scrollY > 50) {
-                    header.style.background = 'rgba(255, 255, 255, 0.85)';
-                    header.style.padding = '8px 20px';
-                } else {
-                    header.style.background = 'rgba(255, 255, 255)';
-                    header.style.padding = '10px 20px';
-                }
-            });
+            // Scroll event for header (using passive listener for better performance)
+            if (header) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 50) {
+                        header.style.background = 'rgba(255, 255, 255, 0.85)';
+                        header.style.padding = '8px 20px';
+                    } else {
+                        header.style.background = 'rgba(255, 255, 255)';
+                        header.style.padding = '10px 20px';
+                    }
+                }, { passive: true });
+            }
         });
     </script>
 </body>
